@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+function formatmin(n){
+ if(n<10){ 
+     minutes=('0'+ minutes);
+  } else {
+      minutes=(minutes);
+  }
+}
+function formatsec(n){
+ if(n<10){ 
+     seconds=('0'+ seconds);
+  } else {
+      seconds=(seconds);
+  }
+}
+function formathor(n){
+ if(n<10){ 
+     hours=('0'+ hours);
+  } else {
+      hours=(hours);
+  }
+}
+</script>
+</head>
+<body>
+<div>
+<div align = "center" style="margin: 30px"> <h1>
+    <span id = "hora"> hora </span> :
+    <span id = "minutos">minutos</span> :
+    <span id = "segundos">segundos</span>
+     </h1>
+    </div>
+
+</div>
+
+  <script>
+var time = 30;
+function cronometro(){
+hours = Math.floor( time / 3600 );
+formathor(hours);
+document.getElementById("hora").innerHTML = hours;
+minutes = Math.floor( (time % 3600) / 60 );
+formatmin(minutes);
+document.getElementById("minutos").innerHTML = minutes ;
+seconds = time % 60;
+formatsec(seconds);
+document.getElementById("segundos").innerHTML = seconds;
+}
+var myVar = setInterval(function(){ Start() }, 1000);
+
+//comenzar();
+
+function Start () {
+	if(time>0){
+        --time;
+        cronometro();
+    }else{
+        clearInterval(myVar);
+        alert("se acabo");
+    }
+   
+	
+}
+//cronometro();
+
+</script>
+
+
+</body>
+</html>
